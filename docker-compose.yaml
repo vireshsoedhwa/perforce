@@ -1,0 +1,21 @@
+services:
+  perforce:
+    image: perforce
+    build:
+      context: .
+      args:
+        - VERSION=1.0.0
+    environment:
+      - P4SERVICENAME=gaming
+      - P4USER=super
+      - P4PORT=ssl:1666
+      - P4PASSWD=gG52675FEH
+    volumes:
+      - perforce_data:/opt/perforce
+      - perforce_config:/etc/perforce
+    ports:
+      - 1666:1666
+
+volumes:
+  perforce_data:
+  perforce_config:
